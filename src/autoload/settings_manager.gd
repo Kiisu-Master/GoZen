@@ -7,7 +7,8 @@ enum LANGUAGE {
 	FRENCH, 
 	DUTCH, 
 	CHINESE_TAIWAN,
-	POLISH }
+	POLISH,
+	GERMAN }
 
 const PATH := "user://settings"
 
@@ -16,7 +17,7 @@ var zen_mode: bool = false:
 		zen_mode = x
 		Globals._on_zen_switch.emit()
 		save_settings()
-var language: LANGUAGE = LANGUAGE.ENGLISH:
+var language: LANGUAGE = LANGUAGE.GERMAN:
 	set(x):
 		var locale: String
 		match x:
@@ -26,6 +27,7 @@ var language: LANGUAGE = LANGUAGE.ENGLISH:
 			LANGUAGE.DUTCH: locale = "nl"
 			LANGUAGE.CHINESE_TAIWAN: locale = "zh_TW"
 			LANGUAGE.POLISH: locale = "pl_pl"
+			LANGUAGE.GERMAN: locale = "de"
 		TranslationServer.set_locale(locale)
 
 var module_settings := {}
